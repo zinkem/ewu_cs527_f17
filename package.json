@@ -1,0 +1,26 @@
+{
+  "name": "ewu_cs527_f17",
+  "version": "1.0.0",
+  "description": "Twitter Stream Reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zinkem/ewu_cs527_f17.git"
+  },
+  "keywords": [
+    "twitter",
+    "mysql"
+  ],
+  "author": "Matthew Zinke, Raymond Swannack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zinkem/ewu_cs527_f17/issues"
+  },
+  "homepage": "https://github.com/zinkem/ewu_cs527_f17#readme",
+  "dependencies": {
+    "oauth": "^0.9.15"
+  }
+}
