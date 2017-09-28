@@ -27,8 +27,8 @@ Using twitter’s REST API we will fetch streams of tweets based on search crite
 - HTML5, Javascript (web client)
 - Javascript (Node.js v8.x), npm  (server)
 - npm packages: 
- - oauth -- required for twitter authorization
- - mysql -- required for database connection
+  - oauth -- required for twitter authorization
+  - mysql -- required for database connection
 - MySQL
 - git
 - Chrome
