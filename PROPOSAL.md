@@ -109,10 +109,13 @@ A client application will be developed to display calls to the REST interface an
 
 ## Delegation of Tasks
 
-Database Schema -- Matthew, Raymond
-Stream Reader -- Matthew
-REST Interface (server) -- Matthew, Raymond
-HTML5 webapp (client) -- Raymond
+ Database Schema -- Matthew, Raymond 
+ 
+ Stream Reader -- Matthew 
+ 
+ REST Interface (server) -- Matthew, Raymond 
+ 
+ HTML5 webapp (client) -- Raymond 
 
 
 ## Outstanding Questions
