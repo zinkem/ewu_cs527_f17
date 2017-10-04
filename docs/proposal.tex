@@ -1,0 +1,95 @@
+\title{CS 527 Project Proposal}
+\author{
+        Matthew Zinke \\
+            \and
+        Raymond Swannack\\
+}
+\date{}
+
+\documentclass[11pt]{article}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+With the advent of social media, social data have become an important source of insight into the activities of consumers of these services. Websites like Facebook, Twitter, Pinterest, LinkedIn, and others hold vast quantities of information about the people using them. This data can be used to track and predict social trends, map relationships between users, and make product recommendations. For this project we will research different ways Twitter data can be stored and categorized to make useful observations and build a system that can be used to gain insight into social trends and user preferences. 
+
+\section{Objectives}
+The objective of this project is to explore previous research in the area of reading, categorizing, and storing data from twitter and implement our own system based on this research. We hope to learn more about the possibilities and limitations of collection methods as well as potential conclusions that can be drawn from the collected dataset.
+
+\section{Previous work}\label{previous work}
+Favorite, retweet, and reply data is important to organizing and ranking the popularity of tweets. One published work describes utilizing top-k algorithms to rank social media objects from real-time streams \cite{DBLP:journals/corr/VouzoukidouAC16}. The research targets social media in general but applies to our use case.\\
+
+Social graphs may contain valuable information about relationships between users. One publication proposes Twigraph, a schema for graphing relationships between users based on word use \cite{DBLP:journals/corr/SundararamanS17}. These relationships are then used to recommend user profiles, advertisements, and articles to users based on profile activity.\\
+
+Sentiment Analysis on social data is another popular topic right now. Research that has targeted twitter specifically has run into issues not found elsewhere, such as the 140 character limit on tweets and the use of texting shorthand to overcome this limitation \cite{sentiment_2014}. This sentiment analysis can be used to monitor wider social trends, and has been used to attempt to predict political elections and outcomes \cite{DBLP:journals/corr/KulshresthaEMZG17}.
+
+\section{Proposal}\label{results}
+
+Using Twitter's Streaming and REST API, we will fetch streams of tweets based on search criteria and filters, then store this information into a MySQL database. This will allow us to test different collection and storage techniques, and then experiment with the data ourselves. The following section outlines the system we will build to do this.
+
+\subsection{Technologies and Tools}
+
+We will use some common technologies and tools to achieve our goals.
+\begin{enumerate}
+\itemsep0em
+\item HTML5, Javascript (web client)
+\item Javascript (Node.js v8.x), npm  (server)
+\item npm packages: oauth (authorization), mysql (database driver)
+\item MySQL
+\item git
+\item Chrome
+\item Twitter
+\end{enumerate}
+
+\subsection{Modules}
+
+The following section contains a description of the main modules we will build for data collection, storage, and presentation.
+
+\subsubsection{Twitter Stream Database}
+A MySQL database will be used to store tweets and metadata. Current proposed database tables follow, these are subject to change based on research.
+\begin{itemize}
+\itemsep0em
+\item Tweets
+\item Hashtags
+\item Users
+\item Follows (showing follow relationships between users for social graph)
+\end{itemize}
+
+
+\subsubsection{Twitter Stream Reader}
+A Node.js application will open connection to twitter stream, receive tweets, and store them to MySQL database. The stream reader will be able to filter out unwanted tweets so they are not recorded to the database. Example filters follow.
+
+\begin{itemize}
+\itemsep0em
+\item Blacklist users (filter out users)
+\item Whitelist users (filter for certain users)
+\item Filter for keyword (contains/does not contain)
+\item Filter for hashtag (contains/does not contain)
+\item Location filters (within N miles of set location(s))
+\end{itemize}
+
+\subsubsection{Application Interface}
+We will provide a simple application for querying and exploring the data. It will consist of a REST API and an HTML5 Client application.\\
+
+\textbf{Rest Interface}
+We will write a RESTful application server in Node.js to make tweet database contents available to other applications, mainly an HTML5 client application that will be served via HTTP.\\
+
+\textbf{HTML5 Client Application}
+A client application will be developed to display calls to the REST interface and navigate the data. Some proposed client views follow.
+
+\begin{itemize}
+\itemsep0em
+\item Total Statistics (tweets stored, uptime, etc)
+\item Timeline plots showing activity over time periods
+\item Rankings (most active users, most liked tweets, etc)
+\item Server Configuration
+\end{itemize}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{proposal}
+
+
+\end{document}
+This is never printed
