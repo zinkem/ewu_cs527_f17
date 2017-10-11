@@ -17,8 +17,23 @@ This sofwtare will connect to Twitter's streaming API endpoint and recieve, reco
 
 Requires oauth and mysql npm modules. Navigate to the repo root directory and enter the following commands:
 
-* ```npm install oauth```
-* ```npm install mysql```
+* ```$ npm install oauth```
+* ```$ npm install mysql```
+
+## First Time Setup
+
+Run mysql and Create a MySQL User Ex:
+
+```
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'cs527'@'%' IDENTIFIED BY 'megaman4';
+```
+
+To initialize the DB, Navigate to repo root directory and type:
+
+```
+$ cd bin
+$ ./init_mysql.sh
+```
 
 ## Usage
 
