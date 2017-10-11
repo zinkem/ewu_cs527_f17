@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/zinkem/ewu_cs527_f17#readme",
   "dependencies": {
+    "mysql": "^2.15.0",
     "oauth": "^0.9.15"
   }
 }
