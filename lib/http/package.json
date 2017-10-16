@@ -1,0 +1,8 @@
+{
+  "name": "httpd",
+  "version": "0.0.1",
+  "description": "HTTP Daemon",
+  "main": "httpd.js",
+  "author": "Matthew Zinke",
+  "license": "UNLICENSED"
+}
