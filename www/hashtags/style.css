@@ -1,0 +1,51 @@
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.table_view {
+    display: table;
+    background-color: #fff;
+    padding: 5px;
+    margin: 3px;
+}
+
+.table_row {
+    display: table-row;
+    padding: 2px;
+    margin: 2px;
+}
+
+.table_cell {
+    display: table-cell;
+    padding: 1px;
+    margin: 3px;
+}
+
+.table_title {
+    font-family: arial;
+    background-color: #ddf;
+}
+.header {
+    margin-bottom: 30px;
+}
+
+.footer {
+    margin-top: 30px;
+}
+
+.content {
+    width: 1200px;
+    background-color: #ddd;
+    padding: 8px;
+    margin: 5px;
+}
+
+.user_name {
+    font-family: arial;
+}
+
+.id, .tweet_id, .create_time, .label {
+    display: none;
+}
