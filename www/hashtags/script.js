@@ -8,37 +8,32 @@ function new_div(classname){
 function create_table(sql_data){
 
   var table_view = new_div('table_view');
-  
   var keys = [];
-
 
   var row_div = new_div('table_row');
   var div;
-  
+
   for( var i in sql_data.fields ){
     var col_name = sql_data.fields[i].name;
     keys.push(col_name);
     div = new_div('table_cell table_title ' + col_name);
     div.innerHTML = col_name;
     row_div.appendChild(div);
-    
   }
   div.style.float = 'initial';
   table_view.appendChild(row_div);
-  
+
   for( var i in sql_data.table ){
 
     var row = sql_data.table[i];
     row_div = new_div('table_row');
 
     for( var k in keys ){
-      console.log(keys[k]);
       var value = row[keys[k]];
       var div = new_div('table_cell ' + keys[k]);
       div.innerHTML = value;
       table_view.appendChild(div);
     }
-    
     table_view.appendChild(row_div);
   }
 
@@ -46,7 +41,7 @@ function create_table(sql_data){
 }
 
 function place_content(source, dest_div, cb) {
-    
+
   var hreq = new XMLHttpRequest(),
       method = 'GET',
       url = source;
@@ -57,7 +52,6 @@ function place_content(source, dest_div, cb) {
 
       if(cb) cb();
     }
-     
   };
 
   hreq.open(method, url, true);
@@ -67,20 +61,21 @@ function place_content(source, dest_div, cb) {
 
 
 function init() {
+  var searchParams = new URLSearchParams(window.location.search);
+  var tag = searchParams.get('tag');
 
   var content_div = new_div('content');
-  place_content('/api/hashtags/stats/news', content_div,
+  place_content('/api/hashtags/stats/'+tag, content_div,
                 function(){
-                  place_content('/api/hashtags/tweets/news', content_div);
+                  place_content('/api/hashtags/tweets/'+tag, content_div);
                 });
-  
-  var top_div = new_div('header');
-  top_div.innerHTML = "HASHTAGS!";
 
-  
+  var top_div = new_div('header');
+  top_div.innerHTML = '#'+tag;
+
   var bottom_div = new_div('footer');
-  bottom_div.innerHTML = "YEA!";
-  
+  bottom_div.innerHTML = "cs527. Authors: Raymond Swannack, Matthew Zinke";
+
   document.body.appendChild(top_div);
   document.body.appendChild(content_div);
   document.body.appendChild(bottom_div);

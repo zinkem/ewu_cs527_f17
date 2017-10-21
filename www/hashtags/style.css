@@ -29,10 +29,14 @@ body {
 }
 .header {
     margin-bottom: 30px;
+    font-family: consolas;
+    font-size: 54px;
+    background-color: #ffe;
 }
 
 .footer {
     margin-top: 30px;
+    background-color: #ffe;
 }
 
 .content {
