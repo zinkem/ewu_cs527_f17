@@ -3,6 +3,10 @@ var global_data = [];
 var tags = [];
 var num_rows = 1;
 
+var default_timespan = 7200;
+var timespan;
+var data_density = 40;
+
 function fetch_data(source, tag, cb) {
   console.log("begin fetch_data");
   var hreq = new XMLHttpRequest(),
@@ -29,20 +33,24 @@ function init() {
 
   var searchParams = new URLSearchParams(window.location.search);
   var tag = searchParams.get('tags');
+
+  timespan = searchParams.get('timespan');
+  if( !timespan )
+    timespan = default_timespan;
+
+  if( timespan > 1e6 ){
+    data_density = 10000;
+  } else if( timespan > 1e5 ){
+    data_density = 1000;
+  } else if( timespan > 1e4 ){
+    data_density = 100;
+  }
+
   tag_list = tag.split(',');
   console.log(tag_list);
   for( var k in tag_list ){
-    fetch_data('/api/hashtags/timeseries/'+tag_list[k], tag_list[k], load_timeseries);
+    fetch_data('/api/hashtags/timeseries/'+tag_list[k]+'/?time='+timespan, tag_list[k], load_timeseries);
   }
-  /*
-  fetch_data('/api/hashtags/timeseries/'+tag, tag, load_timeseries);
-  fetch_data('/api/hashtags/timeseries/trump', 'trump', load_timeseries);
-  fetch_data('/api/hashtags/timeseries/football', 'football', load_timeseries);
-  fetch_data('/api/hashtags/timeseries/seahawks', 'seahawks', load_timeseries);
-  fetch_data('/api/hashtags/timeseries/music', 'music', load_timeseries);
-  fetch_data('/api/hashtags/timeseries/news', 'news', load_timeseries);
-*/
-
 }
 
 function load_timeseries() {
@@ -51,7 +59,7 @@ function load_timeseries() {
     return;
   }
   var context = cubism.context()
-      .step(1e4)
+      .step(timespan)
       .size(1440);
 
   global_context = context;
@@ -70,7 +78,7 @@ function load_timeseries() {
     .data(d3.range(0, num_rows).map(add_data))
     .enter().insert("div", ".bottom")
     .attr("class", "horizon")
-    .call(context.horizon().extent([0, 40]));
+    .call(context.horizon().extent([0, data_density]));
 
   context.on("focus", function(i) {
     d3.selectAll(".value").style("right", i == null ? null : context.size() - i + "px");
