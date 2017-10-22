@@ -70,7 +70,7 @@ function load_timeseries() {
     .data(d3.range(0, num_rows).map(add_data))
     .enter().insert("div", ".bottom")
     .attr("class", "horizon")
-    .call(context.horizon().extent([0, 25]));
+    .call(context.horizon().extent([0, 40]));
 
   context.on("focus", function(i) {
     d3.selectAll(".value").style("right", i == null ? null : context.size() - i + "px");
