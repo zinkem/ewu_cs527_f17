@@ -47,7 +47,7 @@ function init() {
     data_density = 100;
   }
 
-  step_size = Math.round(timespan*1000)/1440;
+  step_size = Math.round(timespan*1000/1440);
 
   tag_list = tag.split(',');
   console.log(tag_list);
@@ -92,7 +92,7 @@ function add_data(x) {
   var values = [];
   var i = 0;
   var last;
-  
+  var last_val = 0;
   return global_context.metric(function(start, stop, step, callback) {
     start = +start, stop = +stop;
     step = step;
@@ -113,7 +113,9 @@ function add_data(x) {
           break;
         }
       }
-      values.push(cur_val);
+      var push_val = Math.round((cur_val + last_val)/2);
+      values.push(push_val);
+      last_val = cur_val;
     }
     callback(null, values)
   }, "#"+tags[x]);
