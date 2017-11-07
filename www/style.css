@@ -1,1 +1,42 @@
-body{background-color:salmon}
+body{background-color:blue}
+
+#form1 {
+	text-align: center;
+	margin-left: 28px;
+	background-color: blue;
+	padding: 4px;
+	outline-style: solid;
+	outline-color: white;
+	outline-width: 8px;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+#form2 {
+	margin-left: 28px;
+	text-align: center;
+	/* background-image: url("http://bit.ly/RhrMEn"); */
+    background-repeat: repeat-x;
+	background-color: blue;
+	padding: 20px;
+	font-size: 28px;
+	font-weight: bold;
+	outline-width: 8px;
+	outline-color: white;
+	outline-style: solid;
+}
+
+#form3 {
+	margin-left: 28px;
+	text-align: center;
+	outline-width: 8px;
+	outline-color: white;
+	outline-style: solid;
+	font-weight: bold;
+	font-size: 28px;
+
+}
+
+#head{
+	text-align: center;
+}
