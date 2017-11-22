@@ -35,6 +35,22 @@ $ cd bin
 $ ./init_mysql.sh
 ```
 
+Populate myconfig with Twitter credentials:
+
+First you will need to create Twitter app credentials here: 
+https://apps.twitter.com/
+
+Once you have created an access token and consumer key, enter them into myconfig
+
+From repo root:
+
+```
+cd lib
+cp myconfig.example myconfig
+```
+
+Open myconfig in a text editor, populate this object with auth values for the Twitter app. 
+
 ## Usage
 
 Navigate to the repo root directory and type:
