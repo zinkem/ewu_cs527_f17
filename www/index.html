@@ -5,21 +5,30 @@
 			cscd527Project
 		</title>
 		<script src="script.js">
-			
+
 		</script>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-			<form action="/hashtags/" method="get">
+			<h1 id="head">Twitter Stream Reader</h1>
+			<form id="form1" action="/hashtags/" method="get">
 				Hashtag: <input type="text" name="tag" maxlength="140"><br>
 				<input type="submit" value="Submit">
 			</form>
-			<form action="/most/" method="get">
-			<input type="radio" name="stuff" value="Friends"> 5 Most friends<br>
-			<input type="radio" name="stuff" value="Followers"> 5 Most followers<br>
+
+			<form id="form2" action="/most/" method="get">
+			<input type="radio" name="stuff" value="Friends"> 5 Most friends
+			<input type="radio" name="stuff" value="Followers"> 5 Most followers
 			<input type="radio" name="stuff" value="Tweets"> 5 Most Tweets<br>
 			<input type="submit" value="Submit">
 			</form>
-			<!-- <img  src="http://bit.ly/RhrMEn" /> -->
+
+			<form id="form3" action="/timeseries/" method="get">
+				Time Series Hashtags: <input type="text" name="tags"><br>
+				<input type="submit" value="Submit">
+			</form>
+			<center>
+			<img id = "img1" src="Twitter_Logo_Blue.png">
+			</center>
 	</body>
 </html>

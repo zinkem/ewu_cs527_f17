@@ -1,1 +1,52 @@
-body{background-color:salmon}
+body{
+	background: linear-gradient(#1DA1F2, white);
+}
+
+#form1 {
+	text-align: center;
+	margin-left: 28px;
+	background-color: #1DA1F2;
+	padding: 4px;
+	outline-style: solid;
+	outline-color: white;
+	outline-width: 8px;
+	font-weight: bold;
+	font-size: 28px;
+	margin-bottom: 24px;
+}
+
+#form2 {
+	margin-left: 28px;
+	text-align: center;
+    background-repeat: repeat-x;
+	background-color: #1DA1F2;
+	padding: 20px;
+	font-size: 28px;
+	font-weight: bold;
+	outline-width: 8px;
+	outline-color: white;
+	outline-style: solid;
+	margin-bottom: 24px;
+}
+
+#form3 {
+	margin-left: 28px;
+	text-align: center;
+	padding: 4px;
+	outline-width: 8px;
+	outline-color: white;
+	outline-style: solid;
+	font-weight: bold;
+	font-size: 28px;
+	background-color: #1DA1F2;
+	margin-bottom: 0px;
+}
+
+#img1 {
+	width:30%;
+	height:auto;
+}
+
+#head{
+	text-align: center;
+}
