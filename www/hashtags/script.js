@@ -65,6 +65,7 @@ function init() {
   var tag = searchParams.get('tag');
 
   var content_div = new_div('content');
+
   place_content('/api/hashtags/stats/'+tag, content_div,
                 function(){
                   place_content('/api/hashtags/tweets/'+tag, content_div);
@@ -72,6 +73,14 @@ function init() {
 
   var top_div = new_div('header');
   top_div.innerHTML = '#'+tag;
+
+  var meta_div = new_div('header_button');
+  meta_div.innerHTML = '<a href="/">Home</a>';
+  top_div.append(meta_div);
+
+  var meta_div = new_div('header_button');
+  meta_div.innerHTML = '<a href="/timeseries/?timespan=14400&tags=' + tag + '">Chart</a>';
+  top_div.append(meta_div);
 
   var bottom_div = new_div('footer');
   bottom_div.innerHTML = "cs527. Authors: Raymond Swannack, Matthew Zinke";

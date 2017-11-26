@@ -9,8 +9,9 @@
 		</script>
 		<link rel="stylesheet" href="style.css">
 	</head>
-	<body>
-			<h1 id="head">Twitter Stream Reader</h1>
+	<body onload="init()">
+    <div id="form_pane">
+		<h1 id="head">Twitter Stream Reader</h1>
 			<form id="form1" action="/hashtags/" method="get">
 				Hashtag: <input type="text" name="tag" maxlength="140"><br>
 				<input type="submit" value="Submit">
@@ -30,5 +31,8 @@
 			<center>
 			<img id = "img1" src="Twitter_Logo_Blue.png">
 			</center>
+    </div>
+
+
 	</body>
 </html>

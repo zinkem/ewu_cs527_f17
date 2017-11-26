@@ -31,7 +31,17 @@ body {
     margin-bottom: 30px;
     font-family: consolas;
     font-size: 54px;
-    background-color: #ffe;
+    background-color: #eef;
+}
+
+.header_button {
+    margin-bottom: 30px;
+    font-family: monospace;
+    font-size: 18px;
+    background-color: #fef;
+    width: 180px;
+    float: right;
+    border-radius: 30px;
 }
 
 .footer {
