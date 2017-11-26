@@ -20,6 +20,8 @@ function init(){
 
       var data = JSON.parse(top_tags_api_req.responseText);
 
+      var tag_csv = '';
+
 			var node = document.createElement("div");
       node.innerHTML = '<h3>Trending</h3>';
 
@@ -28,7 +30,12 @@ function init(){
 
         node.innerHTML += '<a href="hashtags/?tag=' + row.label + '">' + row.label + '</a> ';
         node.innerHTML += row.frequency + '<br>';
+
+        tag_csv += row.label + ',';
       }
+
+      node.innerHTML +='<p><a href="timeseries/?timespan=14400&tags=' + tag_csv.slice(0,-1) +
+        '">See All Activity</a> ';
 
       node.style = 'width: 200px; float: right;';
 			document.body.appendChild(node);
@@ -36,7 +43,7 @@ function init(){
 		}
   }
 
-  top_tags_api_req.open('GET', 'api/hashtags/top', true);
+  top_tags_api_req.open('GET', 'api/hashtags/trending', true);
   top_tags_api_req.send();
 
 }
