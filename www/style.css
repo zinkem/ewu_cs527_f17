@@ -2,6 +2,19 @@ body{
 	background: linear-gradient(#1DA1F2, white);
 }
 
+.header {
+    height: 55px;
+    margin: 20px;
+}
+.header_button {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 5px;
+    width: 180px;
+    text-align: center;
+    float: left;
+}
+
 #form_pane {
     position: absolute;
     left: 25%;

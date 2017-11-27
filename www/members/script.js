@@ -7,43 +7,40 @@ function init() {
 
       var rank = [];
 
-      console.log(data.total_docs);
-      for( k in data.term ){
-        console.log('k: ' + k);
-        console.log(data.total_docs);
-        console.log(data.doc[k]);
-        console.log(data.term[k]);
-        var idfval = Math.log(data.total_docs/data.doc[k]) * Math.sqrt(data.term[k]/100);
+      console.log(data);
+      
+      for( k in data.channels ){
+        var users = data.channels[k];
+        
+        var num_users = Object.keys(users).length;
+        console.log(k + ' ' + num_users);
         rank.push({
           term: k,
-          idf: idfval
+          users: num_users
         });
       }
       rank.sort((a, b) => {
-        return b.idf - a.idf;
+        return b.users - a.users;
       });
-      
-      
-      var node = document.createElement("div");
 
+      var node = document.createElement("div");
+      node
       for( k in rank ){
         var n = document.createElement("div");
         var h = '';
         h += '<input type="checkbox" name="select" value="'+rank[k].term+'"/>';
         h += '<a href="/hashtags/?tag='+rank[k].term+'">See</a>    ';
-        h += '<span style="padding-right:75px">'+rank[k].term + "</span>" + rank[k].idf + "\t" + data.doc[rank[k].term] + " / " + data.term[rank[k].term];
+        h += '<span style="padding-right:75px">'+ rank[k].term + "</span>" + rank[k].users;
         n.innerHTML = h;
         node.append(n);
       }
-      
-			document.body.prepend(node);
+			document.body.appendChild(node);
       
 		}
 	}
 	
-	xhttp.open("GET", "/api/text/json", true);
+	xhttp.open("GET", "/api/members", true);
 	xhttp.send();
-
 }
 
 
