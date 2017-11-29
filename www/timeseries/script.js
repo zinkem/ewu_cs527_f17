@@ -40,11 +40,11 @@ function init() {
     timespan = default_timespan;
 
   if( timespan > 1e6 ){
-    data_density = 10000;
+    data_density = 12000;
   } else if( timespan > 1e5 ){
-    data_density = 1000;
+    data_density = 600;
   } else if( timespan > 1e4 ){
-    data_density = 100;
+    data_density = 30;
   }
 
   step_size = Math.round(timespan*1000/1440);

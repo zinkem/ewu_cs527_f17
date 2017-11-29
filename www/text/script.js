@@ -13,7 +13,7 @@ function init() {
         console.log(data.total_docs);
         console.log(data.doc[k]);
         console.log(data.term[k]);
-        var idfval = Math.log(data.total_docs/data.doc[k]) * Math.sqrt(data.term[k]/100);
+        var idfval = Math.log2(data.term[k]) / (3+ data.doc[k]);
         rank.push({
           term: k,
           idf: idfval
@@ -31,7 +31,7 @@ function init() {
         var h = '';
         h += '<input type="checkbox" name="select" value="'+rank[k].term+'"/>';
         h += '<a href="/hashtags/?tag='+rank[k].term+'">See</a>    ';
-        h += '<span style="padding-right:75px">'+rank[k].term + "</span>" + rank[k].idf + "\t" + data.doc[rank[k].term] + " / " + data.term[rank[k].term];
+        h += '<span style="padding-right:200px;">'+rank[k].term + "</span>" + rank[k].idf + "\t" + data.doc[rank[k].term] + " / " + data.term[rank[k].term];
         n.innerHTML = h;
         node.append(n);
       }
